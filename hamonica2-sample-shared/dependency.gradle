@@ -1,0 +1,46 @@
+/*-----------------------------------------------------------------------------------------------------------
+
+	프로젝트	명	: hamonica2-shared
+	설정 파일	명	: dependency.gradle
+	설		명	: 프로젝트에 필요한 라이브러리를 관리한다.
+
+ -----------------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------------------------------
+	저장소 정의		: 필요한 라이브러리를 다운로드 할 저장소를 설정 한다.
+ -----------------------------------------------------------------------------------------------------------*/
+repositories {
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
+/*-----------------------------------------------------------------------------------------------------------
+	의존성 정의		: 프로그램 구동에 필요한 라이브러리를 지정 한다.
+ -----------------------------------------------------------------------------------------------------------*/
+dependencies {
+
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+	implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+	implementation 'org.apache.commons:commons-lang3:3.14.0'
+	implementation 'org.apache.httpcomponents:httpasyncclient:4.1.5'
+	implementation 'commons-io:commons-io:2.16.1'
+
+	implementation 'org.hibernate:hibernate-core:6.5.2.Final' // Check for latest version
+	implementation 'joda-time:joda-time:2.10.13'
+
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+	implementation 'org.freemarker:freemarker:2.3.32'
+
+	implementation 'com.slack.api:slack-api-client:1.40.2' // 최신 버전 확인
+
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="false">
+
+	<springProperty name="logName" source="spring.application.name" defaultValue="application"/>
+	<springProperty name="path" source="logging.file.path" defaultValue="logs"/>
+	<springProperty name="maxHistory" source="logging.logback.rollingpolicy.max-history" defaultValue="1"/>
+
+    <appender name="FILEOUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${path}/${logName}.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${path}/${logName}.%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <!-- or whenever the file size reaches 200MB -->
+            <maxFileSize>200MB</maxFileSize>
+            <maxHistory>${maxHistory}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+         	<!-- pattern ex) [2018-06-25 15:10:24.305] [log Level] [class:line] - message -->
+            <pattern>[%d{yyyy-MM-dd} %d{HH:mm:ss.SSS}][%p][%c:%L] - %m %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>[%d{yyyy-MM-dd} %d{HH:mm:ss.SSS}][%p][%c:%L] - %m %n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Loggers -->
+
+    <logger
+            name="ch.qos.logback"
+            level="error"
+    >
+    </logger>
+
+    <logger
+            name="org.springframework.boot.autoconfigure"
+            level="error"
+    >
+    </logger>
+
+    <logger
+            name="org.springframework.jdbc"
+            level="error"
+    >
+    </logger>
+
+    <logger
+            name="org.springframework.core"
+            level="error"
+    >
+    </logger>
+
+    <logger
+            name="org.springframework.beans"
+            level="error"
+    >
+    </logger>
+
+    <logger
+            name="org.springframework.web"
+            level="error"
+    >
+    </logger>
+
+    <logger
+            name="org.springframework.web.servlet"
+            level="error"
+    >
+    </logger>
+
+    <logger
+            name="org.springframework.context"
+            level="error"
+    >
+    </logger>
+
+    <logger
+            name="com.zaxxer.hikari.pool"
+            level="error"
+    >
+    </logger>
+
+    <logger
+            name="kr.co.pionnet.butterfly2"
+            level="debug"
+    >
+    </logger>
+
+    <logger
+            name="kr.co.pionnet.hamonica2"
+            level="debug"
+    >
+    </logger>
+
+    <logger
+            name="kr.co.pionnet.hamonica2.ha"
+            level="debug"
+    >
+    </logger>
+    <logger
+            name="kr.co.pionnet.hamonica2.zconfiguration"
+            level="debug"
+    >
+    </logger>
+    <logger
+            name="kr.co.pionnet.hamonica2.zconfiguration.plugin"
+            level="debug"
+    >
+    </logger>
+    <root level="info">
+<!--        <appender-ref ref="FILEOUT"/>  -->
+       <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

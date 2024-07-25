@@ -1,0 +1,16 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+}
+
+rootProject.name = 'hamonica2-demo'
+include 'hamonica2-sample-api'
+include 'hamonica2-sample-api'
+include 'hamonica2-sample-api'
+include 'hamonica2-sample-shared'
+include 'common'
+

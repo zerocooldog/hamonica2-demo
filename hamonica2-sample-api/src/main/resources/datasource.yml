@@ -1,0 +1,21 @@
+datasource:
+  master:
+    hibernate:
+      highlight-sql: true #생상으로 질의 키워드와 컬럴을 구분하여 보여준다.
+      show-sql: true #실행된 쿼리를 보여줌
+      format-sql: true #실행 된 쿼리를 이쁘게 보여줌
+      use-sql-comments: false #어떤 객체로 쿼리가 실행되는지 보여줌
+      ddl-auto: create #없는 테이블은 생성하고 있는테이블은 컬럼만 추가한다. 컬럼 타입 변경은 불가능(수동 변환)
+      naming-physical-strategy: kr.co.pionnet.butterfly2.core.jpa.SnakeCaseNamingStrategy
+
+    connection:
+#      jdbc-url: "jdbc:h2:../common/sample/db/h2db/hamonica2_sample"
+      jdbc-url: "jdbc:h2:mem:hamonica2_sample"
+      driver-class-name: "org.h2.Driver"
+      connection-timeout: 5000
+      auto-commit: true
+      max-lifetime: 55000
+      minimum-idle: 11
+      maximum-pool-size: 11
+      username: "sa"
+      password:
