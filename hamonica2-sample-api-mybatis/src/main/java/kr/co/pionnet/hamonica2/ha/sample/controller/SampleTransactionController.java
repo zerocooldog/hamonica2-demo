@@ -5,10 +5,9 @@ import java.util.List;
 import java.util.Objects;
 
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.co.pionnet.butterfly2.core.controller.BaseController;
-import kr.co.pionnet.hamonica2.ha.sample.master.Test;
+import kr.co.pionnet.hamonica2.ha.sample.repository.master.Test;
 import kr.co.pionnet.hamonica2.ha.sample.service.SampleTransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

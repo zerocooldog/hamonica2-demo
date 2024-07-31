@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.pionnet.demo.test.sample.repository.master.TestDao">
+<mapper namespace="kr.co.pionnet.hamonica2.ha.sample.repository.master.TestDao">
 
 	<cache type="kr.co.pionnet.hamonica2.cache.mybatis.HamonicaCache"/>
 	
@@ -45,10 +45,10 @@
     -->
 
 
-	<select id="findAllByCache" parameterType="kr.co.pionnet.hamonica2.ha.sample.master.Test" resultType="kr.co.pionnet.hamonica2.ha.sample.master.Test" useCache="true">
+	<select id="findAllByCache" parameterType="kr.co.pionnet.hamonica2.ha.sample.repository.master.Test" resultType="kr.co.pionnet.hamonica2.ha.sample.repository.master.Test" useCache="true">
 	SELECT ID, U_NO, NAME, REG_DTIME, CALL_DTIME FROM TEST 
 	</select>
-	<select id="findAllByCacheAnno" parameterType="kr.co.pionnet.hamonica2.ha.sample.master.Test" resultType="kr.co.pionnet.hamonica2.ha.sample.master.Test" useCache="true">
+	<select id="findAllByCacheAnno" parameterType="kr.co.pionnet.hamonica2.ha.sample.repository.master.Test" resultType="kr.co.pionnet.hamonica2.ha.sample.repository.master.Test" useCache="true">
 	SELECT ID, U_NO, NAME, REG_DTIME, CALL_DTIME FROM TEST 
 	</select>
 
@@ -56,7 +56,7 @@
 	SELECT count(*) FROM TEST 
 	</select>
 	
-	<update id="updateCondition" parameterType="kr.co.pionnet.hamonica2.ha.sample.master.Test">
+	<update id="updateCondition" parameterType="kr.co.pionnet.hamonica2.ha.sample.repository.master.Test">
 		UPDATE TEST SET NAME='홍길동' WHERE NAME= #{name, jdbcType=VARCHAR}
 	</update>
 	

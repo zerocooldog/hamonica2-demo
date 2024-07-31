@@ -1,8 +1,8 @@
-package kr.co.pionnet.hamonica2.ha.sample.master;
+package kr.co.pionnet.hamonica2.ha.sample.repository.master;
 
 import java.util.List;
 
-import kr.co.pionnet.hamonica2.ha.sample.master.base.BaseTestDao;
+import kr.co.pionnet.hamonica2.ha.sample.repository.master.base.BaseTestDao;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 /**

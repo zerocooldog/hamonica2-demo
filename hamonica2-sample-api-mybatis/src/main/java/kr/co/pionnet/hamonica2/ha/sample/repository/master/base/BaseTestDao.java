@@ -1,9 +1,9 @@
 
-package kr.co.pionnet.hamonica2.ha.sample.master.base;
+package kr.co.pionnet.hamonica2.ha.sample.repository.master.base;
 
 import java.util.List;
 
-import kr.co.pionnet.hamonica2.ha.sample.master.Test;
+import kr.co.pionnet.hamonica2.ha.sample.repository.master.Test;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;

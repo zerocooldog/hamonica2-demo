@@ -3,8 +3,9 @@ package kr.co.pionnet.hamonica2.ha.sample.service;
 import java.util.List;
 
 import kr.co.pionnet.hamonica2.cache.annotation.Cache;
-import kr.co.pionnet.hamonica2.ha.sample.master.Test;
-import kr.co.pionnet.hamonica2.ha.sample.master.TestDao;
+import kr.co.pionnet.hamonica2.ha.sample.repository.master.Test;
+import kr.co.pionnet.hamonica2.ha.sample.repository.master.TestDao;
+import org.apache.ibatis.builder.xml.XMLStatementBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package kr.co.pionnet.hamonica2.ha.sample.master.base;
+package kr.co.pionnet.hamonica2.ha.sample.repository.master.base;
 
 import lombok.Getter;
 import lombok.Setter;

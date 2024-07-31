@@ -22,7 +22,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 				HibernateJpaAutoConfiguration.class
 		}
 )
-public class HamonicaMybatisApiApplication {
+public class
+HamonicaMybatisApiApplication {
 
 	/**
 	 * 프로젝트 설정파일을 지정한다.

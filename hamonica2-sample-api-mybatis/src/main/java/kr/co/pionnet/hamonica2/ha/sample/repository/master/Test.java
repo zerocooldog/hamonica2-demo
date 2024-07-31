@@ -1,6 +1,6 @@
-package kr.co.pionnet.hamonica2.ha.sample.master;
+package kr.co.pionnet.hamonica2.ha.sample.repository.master;
 
-import kr.co.pionnet.hamonica2.ha.sample.master.base.BaseTest;
+import kr.co.pionnet.hamonica2.ha.sample.repository.master.base.BaseTest;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
