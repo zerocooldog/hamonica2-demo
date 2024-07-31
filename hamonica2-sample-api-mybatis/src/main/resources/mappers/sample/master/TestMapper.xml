@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.pionnet.demo.test.sample.repository.master.TestDao">
+
+	<cache type="kr.co.pionnet.hamonica2.cache.mybatis.HamonicaCache"/>
+	
+    <!--
+		※ 테이블 명  : TEST
+		※설명         : 테스트
+		
+		※ 샘플 입니다. 필요한 부분 발췌하여 사용하시기 바랍니다.
+		
+	    <resultMap id="BaseTestResultMap" type="kr.co.pionnet.hamonica.ims.sample.model.master.Test" >
+	    	<id column="ID" jdbcType="INTEGER" property="ID"/>
+		<id column="U_NO" jdbcType="INTEGER" property="U_NO"/>
+		<result column="NAME" jdbcType="VARCHAR" property="NAME"/>
+		<result column="REG_DTIME" jdbcType="TIMESTAMP" property="REG_DTIME"/>
+		<result column="CALL_DTIME" jdbcType="TIMESTAMP" property="CALL_DTIME"/>
+
+	    </resultMap>
+	    
+	    <sql id="select-columns">
+	    	ID, U_NO, NAME, REG_DTIME, CALL_DTIME
+	    </sql>
+	    
+	    <sql id="pk-columns">
+	    	ID=#{id, jdbcType=INTEGER}  AND U_NO=#{uNo, jdbcType=INTEGER} 
+	    </sql>
+	    
+        <select id="findBy조건명" parameterType="kr.co.pionnet.hamonica.ims.sample.model.master.Test" resultType="kr.co.pionnet.hamonica.ims.sample.model.master.Test">
+		SELECT ID, U_NO, NAME, REG_DTIME, CALL_DTIME FROM TEST WHERE <if test=' id != null and id != \"\" '>ID=#{id, jdbcType=INTEGER} </if><if test=' uNo != null and uNo != \"\" '> AND U_NO=#{uNo, jdbcType=INTEGER} </if><if test=' name != null and name != \"\" '> AND NAME=#{name, jdbcType=VARCHAR} </if><if test=' regDtime != null and regDtime != \"\" '> AND REG_DTIME=#{regDtime, jdbcType=TIMESTAMP} </if><if test=' callDtime != null and callDtime != \"\" '> AND CALL_DTIME=#{callDtime, jdbcType=TIMESTAMP} </if> 
+	    </select>
+	    
+	    <insert id="insert조건명" parameterType="kr.co.pionnet.hamonica.ims.sample.model.master.Test">	
+		INSERT INTO TEST (ID, U_NO, NAME, REG_DTIME, CALL_DTIME) VALUES (#{id, jdbcType=INTEGER} , #{uNo, jdbcType=INTEGER} , <choose> <when test='NAME == null  or NAME == \"\"'> null </when> <otherwise> #{name, jdbcType=VARCHAR} </otherwise> </choose> , <choose><when test='REG_DTIME != null'>#{REG_DTIME, jdbcType=TIMESTAMP}</when><otherwise>CURRENT_TIMESTAMP()</otherwise></choose>, <choose><when test='CALL_DTIME != null'>#{CALL_DTIME, jdbcType=TIMESTAMP}</when><otherwise>null</otherwise></choose>)  
+	    </insert>
+
+		<update id="update조건명" parameterType="kr.co.pionnet.hamonica.ims.sample.model.master.Test">
+		UPDATE TEST SET <if test='id != null'>ID=#{id, jdbcType=INTEGER} </if><if test='uNo != null'>, U_NO=#{uNo, jdbcType=INTEGER} </if><if test='name != null'>, <choose> <when test='NAME == null  or NAME == \"\"'> null </when> <otherwise> NAME=#{name, jdbcType=VARCHAR} </otherwise> </choose> </if><if test='regDtime != null'>, <choose><when test='REG_DTIME != null'>#{REG_DTIME, jdbcType=TIMESTAMP}</when><otherwise>CURRENT_TIMESTAMP()</otherwise></choose></if><if test='callDtime != null'>, <choose><when test='CALL_DTIME != null'>#{CALL_DTIME, jdbcType=TIMESTAMP}</when><otherwise>null</otherwise></choose></if>) WHERE ID=#{id, jdbcType=INTEGER}  AND U_NO=#{uNo, jdbcType=INTEGER} )    
+		</update>
+		
+		<delete id="delete조건명" parameterType="kr.co.pionnet.hamonica.ims.sample.model.master.Test">
+		DELETE FROM TEST WHERE ID=#{id, jdbcType=INTEGER}  AND U_NO=#{uNo, jdbcType=INTEGER}   
+		</delete>
+    -->
+
+
+	<select id="findAllByCache" parameterType="kr.co.pionnet.hamonica2.ha.sample.master.Test" resultType="kr.co.pionnet.hamonica2.ha.sample.master.Test" useCache="true">
+	SELECT ID, U_NO, NAME, REG_DTIME, CALL_DTIME FROM TEST 
+	</select>
+	<select id="findAllByCacheAnno" parameterType="kr.co.pionnet.hamonica2.ha.sample.master.Test" resultType="kr.co.pionnet.hamonica2.ha.sample.master.Test" useCache="true">
+	SELECT ID, U_NO, NAME, REG_DTIME, CALL_DTIME FROM TEST 
+	</select>
+
+	<select id="findAllByCacheNum" resultType="int" useCache="true">
+	SELECT count(*) FROM TEST 
+	</select>
+	
+	<update id="updateCondition" parameterType="kr.co.pionnet.hamonica2.ha.sample.master.Test">
+		UPDATE TEST SET NAME='홍길동' WHERE NAME= #{name, jdbcType=VARCHAR}
+	</update>
+	
+</mapper>

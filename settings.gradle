@@ -9,8 +9,8 @@ buildscript {
 
 rootProject.name = 'hamonica2-demo'
 include 'hamonica2-sample-api'
-include 'hamonica2-sample-api'
-include 'hamonica2-sample-api'
 include 'hamonica2-sample-shared'
 include 'common'
+include 'hamonica2-sample-api-mybatis'
+include 'hamonica2-sample-api-mybatis'
 

@@ -1,0 +1,28 @@
+/*-----------------------------------------------------------------------------------------------------------
+                                                                        
+	프로젝트	명	: hamonica2-sample-api-mybatis
+	설정 파일	명	: build.gradle                                          
+	설		명	: 프로젝트에 필요한 환경 변수 설정 및빌드 task를 관리한다                                    
+                                                                        
+ -----------------------------------------------------------------------------------------------------------*/
+
+/*=====================================================
+ *  의존 라이브러리를 읽어오는 설정 파일
+ =====================================================*/
+apply from: 'dependency.gradle'
+
+tasks.named('processResources') {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+task wrapper(type: Wrapper) {
+}
+
+// assemble 작업이 clen 작업에 의존하도록 설정
+tasks.named('assemble') {
+    dependsOn tasks.named('clean')
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

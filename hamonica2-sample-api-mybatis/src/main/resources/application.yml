@@ -1,0 +1,69 @@
+##########################################################################################################################
+# ※ 환경 : local, application.yml
+#
+#  - 스프링 설정에 관한 내용을 작성한다.
+#  - 스프링 설정에 관한 내용이 아니어도 개발 환경 설정과 관련된 항목은 이곳에 작성한다.
+#
+##########################################################################################################################
+
+spring:
+  profiles:
+    active: local  # spring profile 지정
+  application:
+    name: hamonica2-api-mybatis # spring application 명 지정, 로컬 환경일 때만 설정, Shell 파일로 프로그램 실행시 직접 값을 넘긴다.
+  h2:
+    console:
+      enabled: true
+
+
+  ##########################################################################################################################
+# ※ 메일 전송 정보 정의
+##########################################################################################################################
+  mail:
+    default-encoding: UTF-8
+    host: 127.0.0.1
+    port: 25
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: true
+    protocol: smtp
+    test-connection: false
+    username: ''
+    password: ''
+
+
+
+##########################################################################################################################
+# ※ 내장 톰캣 설정 : local 개발 할 경우 에만 사용.
+##########################################################################################################################
+server:
+  http2:
+    enabled: true
+  compression:
+    enabled: true
+  port: 17000
+  ssl:
+    enabled: false
+# certificate 설정
+#    certificate: 
+#    certificate-private-key: 
+    key-password: abcd1234
+    key-store: ssl/hamonica.kr.p12
+    key-store-password: abcd1234
+    trust-store: ssl/hamonica.kr.ts
+    trust-store-password: abcd1234
+
+######################################################### log 설정 ########################################################
+# 
+# logging.file.path = 로그 경로, Shell로 프로그램을 실행 할 경우 -Dlogging.file.path=경로 값을 직접 입력 받는다.
+# logging.rollingpolicy.max-history = 파일 로그 저장 일수. 1일치 로그 저장
+#
+# level.org.hibernate = hibernate6 으로 버전 업 되면서 로그 설정이 바뀌었다. 파라메터및 SQL 출력 여부 설정은 이곳에서 한다.
+##########################################################################################################################
+logging:
+  logback:
+    rollingpolicy:
+      max-history: 1
