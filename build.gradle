@@ -13,7 +13,7 @@ ext {
     querydslVersion = '5.1.0'
     nettyVersion = '4.1.110.Final'
     protoBufVersion = '4.27.0'
-    hamonicaCommonVersion = '2.0.0-20240627.042822-5:all@jar'
+    hamonicaCommonVersion = '2.0.0-20240812.080026-1:all@jar'
     hamonicaRequiredLibsVersion = '2.0.0-20240620.045803-1:all@jar'
     profile= project.hasProperty("profile") ? project.property("profile").toString() : "local"
 }
