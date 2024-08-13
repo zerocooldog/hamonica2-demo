@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-07-31T11:14:02+0900",
+    date = "2024-08-13T10:59:46+0900",
     comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.8.jar, environment: Java 21.0.3 (Eclipse Adoptium)"
 )
 @Component
@@ -26,8 +26,6 @@ public class MetricMapperImpl implements MetricMapper {
         metricEntity.setCreatedAt( metricResponse.getCreatedAt() );
         metricEntity.setModifierId( metricResponse.getModifierId() );
         metricEntity.setModifiedAt( metricResponse.getModifiedAt() );
-        metricEntity.setMetricId( metricResponse.getMetricId() );
-        metricEntity.setMetricName( metricResponse.getMetricName() );
 
         return metricEntity;
     }
@@ -38,16 +36,14 @@ public class MetricMapperImpl implements MetricMapper {
             return null;
         }
 
-        MetricResponse.MetricResponseBuilder<?, ?> metricResponse = MetricResponse.builder();
+        MetricResponse metricResponse = new MetricResponse();
 
-        metricResponse.creatorId( metric.getCreatorId() );
-        metricResponse.createdAt( metric.getCreatedAt() );
-        metricResponse.modifierId( metric.getModifierId() );
-        metricResponse.modifiedAt( metric.getModifiedAt() );
-        metricResponse.metricId( metric.getMetricId() );
-        metricResponse.metricName( metric.getMetricName() );
+        metricResponse.setCreatorId( metric.getCreatorId() );
+        metricResponse.setCreatedAt( metric.getCreatedAt() );
+        metricResponse.setModifierId( metric.getModifierId() );
+        metricResponse.setModifiedAt( metric.getModifiedAt() );
 
-        return metricResponse.build();
+        return metricResponse;
     }
 
     @Override
@@ -68,12 +64,6 @@ public class MetricMapperImpl implements MetricMapper {
         if ( metricResponse.getModifiedAt() != null ) {
             metric.setModifiedAt( metricResponse.getModifiedAt() );
         }
-        if ( metricResponse.getMetricId() != null ) {
-            metric.setMetricId( metricResponse.getMetricId() );
-        }
-        if ( metricResponse.getMetricName() != null ) {
-            metric.setMetricName( metricResponse.getMetricName() );
-        }
 
         return metric;
     }
@@ -86,9 +76,6 @@ public class MetricMapperImpl implements MetricMapper {
 
         MetricEntity metricEntity = new MetricEntity();
 
-        metricEntity.setMetricId( metricRequest.getMetricId() );
-        metricEntity.setMetricName( metricRequest.getMetricName() );
-
         return metricEntity;
     }
 
@@ -98,25 +85,15 @@ public class MetricMapperImpl implements MetricMapper {
             return null;
         }
 
-        MetricRequest.MetricRequestBuilder<?, ?> metricRequest = MetricRequest.builder();
+        MetricRequest metricRequest = new MetricRequest();
 
-        metricRequest.metricId( metric.getMetricId() );
-        metricRequest.metricName( metric.getMetricName() );
-
-        return metricRequest.build();
+        return metricRequest;
     }
 
     @Override
     public MetricEntity partialUpdate(MetricRequest metricRequest, MetricEntity metric) {
         if ( metricRequest == null ) {
             return metric;
-        }
-
-        if ( metricRequest.getMetricId() != null ) {
-            metric.setMetricId( metricRequest.getMetricId() );
-        }
-        if ( metricRequest.getMetricName() != null ) {
-            metric.setMetricName( metricRequest.getMetricName() );
         }
 
         return metric;

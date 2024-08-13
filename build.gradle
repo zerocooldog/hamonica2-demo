@@ -60,10 +60,12 @@ subprojects {
         options.encoding = 'UTF-8'
     }
 
+
     configurations {
         compileOnly {
             extendsFrom annotationProcessor
         }
+        querydsl.extendsFrom compileClasspath
     }
     sourceSets {
         // java source set 에 querydsl QClass 위치 추가
@@ -105,12 +107,15 @@ subprojects {
         implementation 'org.apache.httpcomponents:httpasyncclient:4.1.5'
         implementation 'commons-io:commons-io:2.16.1'
 
+
         if( projectName.startsWith('hamonica2-sample-api-mybatis') ){
             implementation 'org.springframework.boot:spring-boot-starter-jdbc'
             implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
         }else{
             implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
             implementation 'io.hypersistence:hypersistence-utils-hibernate-63:3.8.1'
+
+            implementation 'jakarta.annotation:jakarta.annotation-api:3.0.0'
 
             // Querydsl 추가
             implementation "com.querydsl:querydsl-jpa:${querydslVersion}:jakarta"
@@ -146,5 +151,8 @@ subprojects {
         useJUnitPlatform()
     }
 
+    clean {
+        delete file(generated)
+    }
 }
 
