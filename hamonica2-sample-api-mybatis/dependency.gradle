@@ -17,6 +17,18 @@ repositories {
 	의존성 정의		: 프로그램 구동에 필요한 라이브러리를 지정 한다.
  -----------------------------------------------------------------------------------------------------------*/
 dependencies {
-	implementation 'kr.co.pionnet.hamonica2:hamonica2-cache-caller:2.0.0-20240731.043156-1@jar'
+	implementation 'kr.co.pionnet.hamonica2:hamonica2-cache-caller:2.0.0-20240827.052208-16@jar'
+
+	implementation 'com.hazelcast:hazelcast:4.2'
+	implementation 'org.mongodb:mongodb-driver-sync:5.1.2'
+	// https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-core
+	implementation 'org.mongodb:mongodb-driver-core:5.1.2'
+
+	implementation 'io.lettuce:lettuce-core:6.0.2.RELEASE'
+	implementation 'org.mongodb:bson:5.1.2'
+
+	//beanutils, 표현식 처리 라이브러리
+	compileOnly 'commons-beanutils:commons-beanutils:1.9.4'
+	compileOnly 'org.apache.commons:commons-jexl3:3.1'
 
 }

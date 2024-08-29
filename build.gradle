@@ -34,7 +34,9 @@ allprojects {
         }
     }
 }
-
+configurations.all {
+    exclude group: 'org.jetbrains.kotlin'
+}
 
 subprojects {
 

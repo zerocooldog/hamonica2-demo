@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-08-13T10:59:43+0900",
+    date = "2024-08-16T16:50:06+0900",
     comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.8.jar, environment: Java 21.0.3 (Eclipse Adoptium)"
 )
 @Component
@@ -23,6 +23,15 @@ public class RoleMapperImpl implements RoleMapper {
 
         RoleEntity roleEntity = new RoleEntity();
 
+        roleEntity.setRoleId( model.getRoleId() );
+        roleEntity.setRoleName( model.getRoleName() );
+        roleEntity.setRoleNameI18n( model.getRoleNameI18n() );
+        roleEntity.setRoleType( model.getRoleType() );
+        roleEntity.setWriteYn( model.getWriteYn() );
+        roleEntity.setReadYn( model.getReadYn() );
+        roleEntity.setUseYn( model.getUseYn() );
+        roleEntity.setDescription( model.getDescription() );
+
         setCreatorId( roleEntity );
 
         return roleEntity;
@@ -34,9 +43,18 @@ public class RoleMapperImpl implements RoleMapper {
             return null;
         }
 
-        Role role = new Role();
+        Role.RoleBuilder role = Role.builder();
 
-        return role;
+        role.roleId( entity.getRoleId() );
+        role.roleName( entity.getRoleName() );
+        role.roleNameI18n( entity.getRoleNameI18n() );
+        role.roleType( entity.getRoleType() );
+        role.writeYn( entity.getWriteYn() );
+        role.readYn( entity.getReadYn() );
+        role.useYn( entity.getUseYn() );
+        role.description( entity.getDescription() );
+
+        return role.build();
     }
 
     @Override
@@ -73,6 +91,31 @@ public class RoleMapperImpl implements RoleMapper {
     public RoleEntity partialUpdate(Role model, RoleEntity entity) {
         if ( model == null ) {
             return entity;
+        }
+
+        if ( model.getRoleId() != null ) {
+            entity.setRoleId( model.getRoleId() );
+        }
+        if ( model.getRoleName() != null ) {
+            entity.setRoleName( model.getRoleName() );
+        }
+        if ( model.getRoleNameI18n() != null ) {
+            entity.setRoleNameI18n( model.getRoleNameI18n() );
+        }
+        if ( model.getRoleType() != null ) {
+            entity.setRoleType( model.getRoleType() );
+        }
+        if ( model.getWriteYn() != null ) {
+            entity.setWriteYn( model.getWriteYn() );
+        }
+        if ( model.getReadYn() != null ) {
+            entity.setReadYn( model.getReadYn() );
+        }
+        if ( model.getUseYn() != null ) {
+            entity.setUseYn( model.getUseYn() );
+        }
+        if ( model.getDescription() != null ) {
+            entity.setDescription( model.getDescription() );
         }
 
         setCreatorId( entity );

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-08-13T10:59:43+0900",
+    date = "2024-08-16T16:50:06+0900",
     comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.8.jar, environment: Java 21.0.3 (Eclipse Adoptium)"
 )
 @Component
@@ -23,6 +23,21 @@ public class NotificationSlackConfigMapperImpl implements NotificationSlackConfi
 
         NotificationSlackConfigEntity notificationSlackConfigEntity = new NotificationSlackConfigEntity();
 
+        notificationSlackConfigEntity.setCreatorId( model.getCreatorId() );
+        notificationSlackConfigEntity.setCreatedAt( model.getCreatedAt() );
+        notificationSlackConfigEntity.setModifierId( model.getModifierId() );
+        notificationSlackConfigEntity.setModifiedAt( model.getModifiedAt() );
+        notificationSlackConfigEntity.setNotificationSlackConfigId( model.getNotificationSlackConfigId() );
+        notificationSlackConfigEntity.setWorkspaceId( model.getWorkspaceId() );
+        notificationSlackConfigEntity.setNotificationTypeId( model.getNotificationTypeId() );
+        notificationSlackConfigEntity.setSettingType( model.getSettingType() );
+        notificationSlackConfigEntity.setDescription( model.getDescription() );
+        notificationSlackConfigEntity.setOauthAccessToken( model.getOauthAccessToken() );
+        notificationSlackConfigEntity.setBotUserAccessToken( model.getBotUserAccessToken() );
+        notificationSlackConfigEntity.setChannelIds( model.getChannelIds() );
+        notificationSlackConfigEntity.setSortOrder( model.getSortOrder() );
+        notificationSlackConfigEntity.setUseYn( model.getUseYn() );
+
         setCreatorId( notificationSlackConfigEntity );
 
         return notificationSlackConfigEntity;
@@ -35,6 +50,21 @@ public class NotificationSlackConfigMapperImpl implements NotificationSlackConfi
         }
 
         NotificationSlackConfig notificationSlackConfig = new NotificationSlackConfig();
+
+        notificationSlackConfig.setCreatorId( entity.getCreatorId() );
+        notificationSlackConfig.setCreatedAt( entity.getCreatedAt() );
+        notificationSlackConfig.setModifierId( entity.getModifierId() );
+        notificationSlackConfig.setModifiedAt( entity.getModifiedAt() );
+        notificationSlackConfig.setNotificationSlackConfigId( entity.getNotificationSlackConfigId() );
+        notificationSlackConfig.setWorkspaceId( entity.getWorkspaceId() );
+        notificationSlackConfig.setNotificationTypeId( entity.getNotificationTypeId() );
+        notificationSlackConfig.setSettingType( entity.getSettingType() );
+        notificationSlackConfig.setDescription( entity.getDescription() );
+        notificationSlackConfig.setOauthAccessToken( entity.getOauthAccessToken() );
+        notificationSlackConfig.setBotUserAccessToken( entity.getBotUserAccessToken() );
+        notificationSlackConfig.setChannelIds( entity.getChannelIds() );
+        notificationSlackConfig.setSortOrder( entity.getSortOrder() );
+        notificationSlackConfig.setUseYn( entity.getUseYn() );
 
         return notificationSlackConfig;
     }
@@ -73,6 +103,49 @@ public class NotificationSlackConfigMapperImpl implements NotificationSlackConfi
     public NotificationSlackConfigEntity partialUpdate(NotificationSlackConfig model, NotificationSlackConfigEntity entity) {
         if ( model == null ) {
             return entity;
+        }
+
+        if ( model.getCreatorId() != null ) {
+            entity.setCreatorId( model.getCreatorId() );
+        }
+        if ( model.getCreatedAt() != null ) {
+            entity.setCreatedAt( model.getCreatedAt() );
+        }
+        if ( model.getModifierId() != null ) {
+            entity.setModifierId( model.getModifierId() );
+        }
+        if ( model.getModifiedAt() != null ) {
+            entity.setModifiedAt( model.getModifiedAt() );
+        }
+        if ( model.getNotificationSlackConfigId() != null ) {
+            entity.setNotificationSlackConfigId( model.getNotificationSlackConfigId() );
+        }
+        if ( model.getWorkspaceId() != null ) {
+            entity.setWorkspaceId( model.getWorkspaceId() );
+        }
+        if ( model.getNotificationTypeId() != null ) {
+            entity.setNotificationTypeId( model.getNotificationTypeId() );
+        }
+        if ( model.getSettingType() != null ) {
+            entity.setSettingType( model.getSettingType() );
+        }
+        if ( model.getDescription() != null ) {
+            entity.setDescription( model.getDescription() );
+        }
+        if ( model.getOauthAccessToken() != null ) {
+            entity.setOauthAccessToken( model.getOauthAccessToken() );
+        }
+        if ( model.getBotUserAccessToken() != null ) {
+            entity.setBotUserAccessToken( model.getBotUserAccessToken() );
+        }
+        if ( model.getChannelIds() != null ) {
+            entity.setChannelIds( model.getChannelIds() );
+        }
+        if ( model.getSortOrder() != null ) {
+            entity.setSortOrder( model.getSortOrder() );
+        }
+        if ( model.getUseYn() != null ) {
+            entity.setUseYn( model.getUseYn() );
         }
 
         setCreatorId( entity );

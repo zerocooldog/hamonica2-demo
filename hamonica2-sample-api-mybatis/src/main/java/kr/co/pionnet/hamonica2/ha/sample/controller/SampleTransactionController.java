@@ -28,7 +28,7 @@ public class SampleTransactionController extends BaseController {
 	SampleTransactionService sampleTransactionService;
 
 	@GetMapping("insert")
-	public void insert() throws Exception {
+	public void insert(HttpServletResponse response) throws Exception {
 
 		Test test = new Test();
 		test.setId((int)(Math.random() * 1000000));
@@ -38,6 +38,9 @@ public class SampleTransactionController extends BaseController {
 		log.debug("######### insert {}", test);
 
 		sampleTransactionService.insert(test);
+
+		List<?> dataList = sampleTransactionService.findAll();
+		writeJson(response, dataList);
 	}
 
 	@GetMapping("update")
@@ -99,13 +102,27 @@ public class SampleTransactionController extends BaseController {
 	}
 
 	@GetMapping("findAllByCacheAnno")
-	public void findAllByCacheAnno(HttpServletResponse response, @RequestParam(value = "number") int number) throws Exception {
+	public void findAllByCacheAnno(
+			HttpServletResponse response,
+			@RequestParam(required = false, value = "number") int number,
+			@RequestParam(required = false, value = "id") int id
+	) throws Exception {
 
 		Test test = new Test();
-		test.setId(1231);
+		test.setId(id);
 
 		List<?> dataList = sampleTransactionService.findAllByCacheAnno(number, test);
 		sampleTransactionService.findAllByCacheAnnoCondition(1, test);
+		writeJson(response, dataList);
+	}
+
+	@GetMapping("findAllByCacheAnnoNoArguments")
+	public void findAllByCacheAnnoNoArguments(
+			HttpServletResponse response
+	) throws Exception {
+
+
+		List<?> dataList = sampleTransactionService.findAllByCacheAnnoNoArguments();
 		writeJson(response, dataList);
 	}
 

@@ -1,5 +1,6 @@
 package kr.co.pionnet.hamonica2;
 
+import com.hazelcast.cache.HazelcastCacheManager;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;

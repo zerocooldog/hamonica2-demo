@@ -7,6 +7,7 @@ import kr.co.pionnet.hamonica2.ha.sample.repository.master.Test;
 import kr.co.pionnet.hamonica2.ha.sample.repository.master.TestDao;
 import org.apache.ibatis.builder.xml.XMLStatementBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
@@ -152,7 +153,7 @@ public class SampleTransactionService {
 	 * @return
 	 * @throws Exception
 	 */
-	@Cache(useCache = true)
+	@Cache(useCache = true, ttl = "20000")
 	public List<Test> findAllByCacheAnno(int i, Test test) throws Exception {
 		
 		
@@ -170,7 +171,7 @@ public class SampleTransactionService {
 	 * @return
 	 * @throws Exception
 	 */
-	@Cache(useCache = true, include = "#i == 1 and #test.id == 1231")
+	@Cache(useCache = true, include = "#i == 1 and #test.id == 2345")
 	public List<Test> findAllByCacheAnnoCondition(int i, Test test) throws Exception {
 		
 		int sample = 3;
@@ -185,10 +186,14 @@ public class SampleTransactionService {
 	 * @return
 	 * @throws Exception
 	 */
+	@Cacheable
 	@Cache(useCache = true, include = "#i == 1 and #test.id == 1231")
 	public int findAllByCacheAnnoInt(int i, Test test) throws Exception {
 		return testDao.findAllByCacheNum();
 	}
 
-
+	@Cache(useCache = true)
+	public List<?> findAllByCacheAnnoNoArguments() throws Exception {
+		return testDao.findAllByCacheAnno();
+	}
 }

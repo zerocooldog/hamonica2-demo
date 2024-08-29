@@ -18,6 +18,7 @@ repositories {
  -----------------------------------------------------------------------------------------------------------*/
 dependencies {
 	implementation project(":hamonica2-sample-shared")
+	implementation 'com.hazelcast:hazelcast-spring:5.5.0'
 
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'  // JUnit 5 API
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.3'  // JUnit 5 엔진
