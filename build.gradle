@@ -35,7 +35,7 @@ allprojects {
         }
     }
 }
-configurations.all {
+configurations.configureEach {
     exclude group: 'org.jetbrains.kotlin'
 }
 
@@ -91,7 +91,7 @@ subprojects {
 
 
     dependencies {
-        implementation ('kr.co.pionnet.butterfly:butterfly2-core:2.0.0-20240830.010139-5'){
+        implementation ('kr.co.pionnet.butterfly:butterfly2-core:2.0.0-20240830.014606-6'){
             //org.springframework.boot:spring-boot-starter-web:3.2.5 와 jackson-bom 충돌남
             exclude group: 'org.springframework.boot', module: 'spring-boot-starter-data-jpa'
             exclude group: 'com.fasterxml.jackson', module: 'jackson-bom'
@@ -144,10 +144,10 @@ subprojects {
 
         runtimeOnly 'com.h2database:h2'
 
-        compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
-        testCompileOnly 'org.projectlombok:lombok'
-        testAnnotationProcessor 'org.projectlombok:lombok'
+        compileOnly 'org.projectlombok:lombok:1.18.34'
+        annotationProcessor 'org.projectlombok:lombok:1.18.34'
+        testCompileOnly 'org.projectlombok:lombok:1.18.34'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
 
         annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
