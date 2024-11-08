@@ -5,10 +5,17 @@ import java.util.List;
 import java.util.Objects;
 
 
+import io.opentelemetry.proto.collector.hamonica2.CommandRequest;
+import io.opentelemetry.proto.collector.hamonica2.CommandResponse;
+import io.opentelemetry.proto.collector.hamonica2.CommandServiceGrpc;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.co.pionnet.butterfly2.core.controller.BaseController;
 import kr.co.pionnet.hamonica2.ha.sample.repository.master.Test;
 import kr.co.pionnet.hamonica2.ha.sample.service.SampleTransactionService;
+
+import kr.co.pionnet.hamonica2.io.grpc.Grpc;
+import kr.co.pionnet.hamonica2.io.grpc.InsecureChannelCredentials;
+import kr.co.pionnet.hamonica2.io.grpc.ManagedChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -157,5 +164,37 @@ public class SampleTransactionController extends BaseController {
 		test.setId(1231);
 
 		log.debug("findAllByCacheAnnoInt : {}", sampleTransactionService.findAllByCacheAnnoInt(1, test));
+	}
+
+	@GetMapping("grpc-client")
+	public void sendGrpcClient() throws Exception{
+//
+//		try {
+//			// gRPC 채널을 생성 (localhost:50051에 연결)
+//			ManagedChannel channel = Grpc.newChannelBuilderForAddress("10.74.220.180", 4317,  InsecureChannelCredentials.create())
+//					.maxTraceEvents(0)
+//					.build();
+//			// gRPC 스텁(stub) 생성
+//			CommandServiceGrpc.CommandServiceBlockingStub stub = CommandServiceGrpc.newBlockingStub(channel);
+//
+//			// 요청 생성
+//			CommandRequest request = CommandRequest.newBuilder()
+//					.setCommand("World")
+//					.build();
+//
+//			// 서버로 요청 전송 및 응답 수신
+//			CommandResponse response = stub.export(request);
+//
+//			// 서버 응답 출력
+//			System.out.println("Response from server: " + response.getMessage());
+//
+//			// 채널 종료
+//			channel.shutdown();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//
+//		}
+
 	}
 }

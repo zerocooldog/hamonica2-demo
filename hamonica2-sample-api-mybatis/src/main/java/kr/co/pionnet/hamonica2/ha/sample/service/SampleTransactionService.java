@@ -2,7 +2,7 @@ package kr.co.pionnet.hamonica2.ha.sample.service;
 
 import java.util.List;
 
-import kr.co.pionnet.hamonica2.cache.annotation.Cache;
+//import kr.co.pionnet.hamonica2.cache.annotation.Cache;
 import kr.co.pionnet.hamonica2.ha.sample.repository.master.Test;
 import kr.co.pionnet.hamonica2.ha.sample.repository.master.TestDao;
 import org.apache.ibatis.builder.xml.XMLStatementBuilder;
@@ -153,7 +153,7 @@ public class SampleTransactionService {
 	 * @return
 	 * @throws Exception
 	 */
-	@Cache(useCache = true, ttl = "20000")
+//	@Cache(useCache = true, ttl = "20000")
 	public List<Test> findAllByCacheAnno(int i, Test test) throws Exception {
 		
 		
@@ -171,7 +171,7 @@ public class SampleTransactionService {
 	 * @return
 	 * @throws Exception
 	 */
-	@Cache(useCache = true, include = "#i == 1 and #test.id == 2345")
+//	@Cache(useCache = true, include = "#i == 1 and #test.id == 2345")
 	public List<Test> findAllByCacheAnnoCondition(int i, Test test) throws Exception {
 		
 		int sample = 3;
@@ -187,12 +187,12 @@ public class SampleTransactionService {
 	 * @throws Exception
 	 */
 	@Cacheable
-	@Cache(useCache = true, include = "#i == 1 and #test.id == 1231")
+//	@Cache(useCache = true, include = "#i == 1 and #test.id == 1231")
 	public int findAllByCacheAnnoInt(int i, Test test) throws Exception {
 		return testDao.findAllByCacheNum();
 	}
 
-	@Cache(useCache = true)
+//	@Cache(useCache = true)
 	public List<?> findAllByCacheAnnoNoArguments() throws Exception {
 		return testDao.findAllByCacheAnno();
 	}

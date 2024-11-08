@@ -10,6 +10,9 @@ version = '0.0.1-SNAPSHOT'
 ext {
 //    nexusUrl = 'http://10.74.102.45:8081/repository/techsupport-releases'
     nexusUrl = 'http://10.74.102.45:8081/repository/techsupport-snapshot'
+
+    neuxsUsername = "techsupport2"
+    nexusPassword = "pion@1208"
     querydslVersion = '5.1.0'
     nettyVersion = '4.1.110.Final'
     protoBufVersion = '4.27.0'
@@ -26,8 +29,8 @@ allprojects {
         maven {
             allowInsecureProtocol true
             credentials {
-                username "techsupport2"
-                password "pion@1208"
+                username "${neuxsUsername}"
+                password "${neuxsUsername}"
             }
             url  'http://10.74.102.45:8081/repository/techsupport-public'
             artifactUrls  'http://10.74.102.45:8081/repository/techsupport-snapshot'
@@ -98,6 +101,8 @@ subprojects {
         }
 
         implementation "kr.co.pionnet.hamonica2:hamonica2-common:$hamonicaCommonVersion"
+        implementation 'kr.co.pionnet.hamonica2:hamonica2-essential:2.0.0-20241106.031552-14:all@jar'
+
         implementation 'org.springframework.boot:spring-boot-starter'
         implementation 'org.springframework.boot:spring-boot-starter-security'
         implementation 'org.springframework.boot:spring-boot-starter-web'
