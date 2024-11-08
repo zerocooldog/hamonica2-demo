@@ -1,8 +1,9 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.3.2'
+    id 'org.springframework.boot' version '3.3.3'
     id 'io.spring.dependency-management' version '1.1.6'
 }
+
 
 group = 'org.example'
 version = '0.0.1-SNAPSHOT'
@@ -16,8 +17,8 @@ ext {
     querydslVersion = '5.1.0'
     nettyVersion = '4.1.110.Final'
     protoBufVersion = '4.27.0'
-    hamonicaCommonVersion = '2.0.0-20240812.080026-1:all@jar'
-    hamonicaRequiredLibsVersion = '2.0.0-20240620.045803-1:all@jar'
+    hamonicaCommonVersion = '2.0.0-20240830.011854-2:all@jar'
+    hamonicaRequiredLibsVersion = '2.0.0-20240830.005403-1:all@jar'
     profile= project.hasProperty("profile") ? project.property("profile").toString() : "local"
 }
 
@@ -37,7 +38,7 @@ allprojects {
         }
     }
 }
-configurations.all {
+configurations.configureEach {
     exclude group: 'org.jetbrains.kotlin'
 }
 
@@ -87,7 +88,7 @@ subprojects {
 
 
     dependencies {
-        implementation ('kr.co.pionnet.butterfly:butterfly2-core:2.0.0-20240711.080509-2'){
+        implementation ('kr.co.pionnet.butterfly:butterfly2-core:2.0.0-20240830.014606-6'){
             //org.springframework.boot:spring-boot-starter-web:3.2.5 와 jackson-bom 충돌남
             exclude group: 'org.springframework.boot', module: 'spring-boot-starter-data-jpa'
             exclude group: 'com.fasterxml.jackson', module: 'jackson-bom'
@@ -109,8 +110,8 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-validation'
         implementation 'org.springframework.boot:spring-boot-starter-websocket'
 
-        implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
-        implementation 'org.apache.commons:commons-lang3:3.14.0'
+        implementation 'jakarta.servlet:jakarta.servlet-api:6.1.0'
+        implementation 'org.apache.commons:commons-lang3:3.16.0'
         implementation 'org.apache.httpcomponents:httpasyncclient:4.1.5'
         implementation 'commons-io:commons-io:2.16.1'
 
@@ -120,7 +121,7 @@ subprojects {
             implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
         }else{
             implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-            implementation 'io.hypersistence:hypersistence-utils-hibernate-63:3.8.1'
+            implementation 'io.hypersistence:hypersistence-utils-hibernate-63:3.8.2'
 
             implementation 'jakarta.annotation:jakarta.annotation-api:3.0.0'
 
@@ -130,11 +131,11 @@ subprojects {
             annotationProcessor "jakarta.annotation:jakarta.annotation-api:3.0.0"
             annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 
-            implementation 'org.hibernate:hibernate-core:6.5.2.Final' // Check for latest version
-            implementation 'joda-time:joda-time:2.10.13'
+            implementation 'org.hibernate:hibernate-core:6.6.0.Final' // Check for latest version
+            implementation 'joda-time:joda-time:2.12.7'
 
-            implementation 'org.mapstruct:mapstruct:1.5.5.Final'
-            annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+            implementation 'org.mapstruct:mapstruct:1.6.0'
+            annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.0'
 
             implementation 'org.freemarker:freemarker:2.3.32'
 
@@ -142,10 +143,10 @@ subprojects {
 
         runtimeOnly 'com.h2database:h2'
 
-        compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
-        testCompileOnly 'org.projectlombok:lombok'
-        testAnnotationProcessor 'org.projectlombok:lombok'
+        compileOnly 'org.projectlombok:lombok:1.18.34'
+        annotationProcessor 'org.projectlombok:lombok:1.18.34'
+        testCompileOnly 'org.projectlombok:lombok:1.18.34'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
 
         annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
