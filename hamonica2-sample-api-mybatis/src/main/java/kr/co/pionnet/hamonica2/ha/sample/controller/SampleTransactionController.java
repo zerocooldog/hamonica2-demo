@@ -1,15 +1,22 @@
 package kr.co.pionnet.hamonica2.ha.sample.controller;
 
+import java.nio.charset.Charset;
+import java.security.KeyStore;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 
 import io.opentelemetry.proto.collector.hamonica2.CommandRequest;
 import io.opentelemetry.proto.collector.hamonica2.CommandResponse;
 import io.opentelemetry.proto.collector.hamonica2.CommandServiceGrpc;
+import io.opentelemetry.proto.collector.hamonica2.ResponseStatus;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.co.pionnet.butterfly2.core.controller.BaseController;
+import kr.co.pionnet.hamonica2.com.google.protobuf.ByteString;
+import kr.co.pionnet.hamonica2.grpc.HamonicaClient;
 import kr.co.pionnet.hamonica2.ha.sample.repository.master.Test;
 import kr.co.pionnet.hamonica2.ha.sample.service.SampleTransactionService;
 
@@ -18,11 +25,9 @@ import kr.co.pionnet.hamonica2.io.grpc.InsecureChannelCredentials;
 import kr.co.pionnet.hamonica2.io.grpc.ManagedChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import static kr.co.pionnet.butterfly2.core.util.UtilResponse.writeJson;
 
 @Slf4j
@@ -165,35 +170,34 @@ public class SampleTransactionController extends BaseController {
 		log.debug("findAllByCacheAnnoInt : {}", sampleTransactionService.findAllByCacheAnnoInt(1, test));
 	}
 
+	@ResponseBody
 	@GetMapping("grpc-client")
-	public void sendGrpcClient() throws Exception{
-//
-//		try {
-//			// gRPC 채널을 생성 (localhost:50051에 연결)
-//			ManagedChannel channel = Grpc.newChannelBuilderForAddress("10.74.220.180", 4317,  InsecureChannelCredentials.create())
-//					.maxTraceEvents(0)
-//					.build();
-//			// gRPC 스텁(stub) 생성
-//			CommandServiceGrpc.CommandServiceBlockingStub stub = CommandServiceGrpc.newBlockingStub(channel);
-//
-//			// 요청 생성
-//			CommandRequest request = CommandRequest.newBuilder()
-//					.setCommand("World")
-//					.build();
-//
-//			// 서버로 요청 전송 및 응답 수신
-//			CommandResponse response = stub.export(request);
-//
-//			// 서버 응답 출력
-//			System.out.println("Response from server: " + response.getMessage());
-//
-//			// 채널 종료
-//			channel.shutdown();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//
-//		}
+	public Map sendGrpcClient() throws Exception{
+
+		HamonicaClient client = HamonicaClient.createAgentClient( "10.74.220.180",13000);
+
+		try {
+
+			CommandResponse response = client.send(CommandRequest.newBuilder()
+
+					.setCommand("World")
+					.putParameter("serviceName", "fo-71b01f")
+					.build());
+
+			log.debug("response : {}", response) ;
+
+			Map<String, Object> result = new HashMap<>();
+			result.put("status ", response.getStatus().name());
+			result.put("data",  new String(response.getData().toByteArray(), Charset.defaultCharset()));
+			return result;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			client.close();
+		}
+
+		return null;
 
 	}
 }

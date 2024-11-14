@@ -111,7 +111,7 @@
             level="debug"
     >
     </logger>
-    <root level="info">
+    <root level="warn">
 <!--        <appender-ref ref="FILEOUT"/>  -->
        <appender-ref ref="STDOUT" />
     </root>

@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.3.3'
+    id 'org.springframework.boot' version '3.3.5'
     id 'io.spring.dependency-management' version '1.1.6'
 }
 
@@ -17,8 +17,6 @@ ext {
     querydslVersion = '5.1.0'
     nettyVersion = '4.1.110.Final'
     protoBufVersion = '4.27.0'
-    hamonicaCommonVersion = '2.0.0-20240830.011854-2:all@jar'
-    hamonicaRequiredLibsVersion = '2.0.0-20240830.005403-1:all@jar'
     profile= project.hasProperty("profile") ? project.property("profile").toString() : "local"
 }
 
@@ -101,8 +99,7 @@ subprojects {
             exclude group: 'org.apache.poi'					, module: 'poi'
         }
 
-        implementation "kr.co.pionnet.hamonica2:hamonica2-common:$hamonicaCommonVersion"
-        implementation 'kr.co.pionnet.hamonica2:hamonica2-essential:2.0.0-20241106.031552-14:all@jar'
+        implementation 'kr.co.pionnet.hamonica2:hamonica2-essential:2.0.0-20241114.071217-27:all@jar'
 
         implementation 'org.springframework.boot:spring-boot-starter'
         implementation 'org.springframework.boot:spring-boot-starter-security'
