@@ -5,7 +5,7 @@ import com.slack.api.methods.MethodsClient;
 import com.slack.api.methods.SlackApiException;
 import com.slack.api.methods.request.chat.ChatPostMessageRequest;
 import com.slack.api.methods.response.chat.ChatPostMessageResponse;
-import kr.co.pionnet.hamonica2.common.ParameterMap;
+import kr.co.pionnet.hamonica2.ParameterMap;
 import kr.co.pionnet.hamonica2.plugin.notification.base.AbstractNotificationPlugin;
 import kr.co.pionnet.hamonica2.plugin.notification.base.DefaultNotificationConfig;
 import kr.co.pionnet.hamonica2.plugin.notification.base.NotificationMessage;

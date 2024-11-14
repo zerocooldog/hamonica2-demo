@@ -1,6 +1,6 @@
 package kr.co.pionnet.hamonica2.plugin.notification.base;
 
-import kr.co.pionnet.hamonica2.common.ParameterMap;
+import kr.co.pionnet.hamonica2.ParameterMap;
 import kr.co.pionnet.hamonica2.plugin.HamonicaPlugin;
 import kr.co.pionnet.hamonica2.plugin.notification.constant.NotificationType;
 import kr.co.pionnet.hamonica2.zconfiguration.plugin.config.DefaultPluginConfig;

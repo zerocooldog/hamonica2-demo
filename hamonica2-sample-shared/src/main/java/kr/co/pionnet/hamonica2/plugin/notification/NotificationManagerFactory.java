@@ -1,7 +1,7 @@
 package kr.co.pionnet.hamonica2.plugin.notification;
 
 import jakarta.validation.constraints.NotNull;
-import kr.co.pionnet.hamonica2.common.ParameterMap;
+import kr.co.pionnet.hamonica2.ParameterMap;
 import kr.co.pionnet.hamonica2.plugin.ServiceFactory;
 import kr.co.pionnet.hamonica2.plugin.notification.base.NotificationMessage;
 import kr.co.pionnet.hamonica2.plugin.notification.base.NotificationPlugin;
