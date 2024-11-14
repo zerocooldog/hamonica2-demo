@@ -1,6 +1,7 @@
 package kr.co.pionnet.hamonica2.plugin;
 
-import kr.co.pionnet.hamonica2.common.ParameterMap;
+
+import kr.co.pionnet.hamonica2.ParameterMap;
 
 /**
  * ServiceLoader는 기본 생성자만 호출한다.
