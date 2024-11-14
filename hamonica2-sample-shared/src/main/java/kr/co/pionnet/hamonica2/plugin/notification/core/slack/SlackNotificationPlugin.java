@@ -12,7 +12,7 @@ import kr.co.pionnet.hamonica2.plugin.notification.base.NotificationMessage;
 import kr.co.pionnet.hamonica2.plugin.notification.constant.NotificationType;
 import kr.co.pionnet.hamonica2.plugin.notification.exception.NotificationException;
 import kr.co.pionnet.hamonica2.shared.notification.models.NotificationSlackConfig;
-import kr.co.pionnet.hamonica2.util.UtilText;
+import kr.co.pionnet.hamonica2.shared.util.UtilText;
 import kr.co.pionnet.hamonica2.zconfiguration.plugin.config.DefaultPluginConfig;
 import lombok.extern.slf4j.Slf4j;
 
