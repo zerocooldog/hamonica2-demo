@@ -8,21 +8,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-
-import io.opentelemetry.proto.collector.hamonica2.CommandRequest;
-import io.opentelemetry.proto.collector.hamonica2.CommandResponse;
-import io.opentelemetry.proto.collector.hamonica2.CommandServiceGrpc;
-import io.opentelemetry.proto.collector.hamonica2.ResponseStatus;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.co.pionnet.butterfly2.core.controller.BaseController;
-import kr.co.pionnet.hamonica2.com.google.protobuf.ByteString;
-import kr.co.pionnet.hamonica2.grpc.HamonicaClient;
 import kr.co.pionnet.hamonica2.ha.sample.repository.master.Test;
 import kr.co.pionnet.hamonica2.ha.sample.service.SampleTransactionService;
 
-import kr.co.pionnet.hamonica2.io.grpc.Grpc;
-import kr.co.pionnet.hamonica2.io.grpc.InsecureChannelCredentials;
-import kr.co.pionnet.hamonica2.io.grpc.ManagedChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -170,34 +160,4 @@ public class SampleTransactionController extends BaseController {
 		log.debug("findAllByCacheAnnoInt : {}", sampleTransactionService.findAllByCacheAnnoInt(1, test));
 	}
 
-	@ResponseBody
-	@GetMapping("grpc-client")
-	public Map sendGrpcClient() throws Exception{
-
-		HamonicaClient client = HamonicaClient.createAgentClient( "10.74.220.180",13000);
-
-		try {
-
-			CommandResponse response = client.send(CommandRequest.newBuilder()
-
-					.setCommand("World")
-					.putParameter("serviceName", "fo-71b01f")
-					.build());
-
-			log.debug("response : {}", response) ;
-
-			Map<String, Object> result = new HashMap<>();
-			result.put("status ", response.getStatus().name());
-			result.put("data",  new String(response.getData().toByteArray(), Charset.defaultCharset()));
-			return result;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			client.close();
-		}
-
-		return null;
-
-	}
 }

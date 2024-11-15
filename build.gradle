@@ -99,7 +99,7 @@ subprojects {
             exclude group: 'org.apache.poi'					, module: 'poi'
         }
 
-        implementation 'kr.co.pionnet.hamonica2:hamonica2-essential:2.0.0-20241114.071217-27:all@jar'
+//        implementation 'kr.co.pionnet.hamonica2:hamonica2-essential:2.0.0-20241115.062952-47:all@jar'
 
         implementation 'org.springframework.boot:spring-boot-starter'
         implementation 'org.springframework.boot:spring-boot-starter-security'
