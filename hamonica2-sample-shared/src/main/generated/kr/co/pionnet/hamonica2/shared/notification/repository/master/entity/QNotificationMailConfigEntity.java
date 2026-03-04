@@ -22,7 +22,7 @@ public class QNotificationMailConfigEntity extends EntityPathBase<NotificationMa
     public final kr.co.pionnet.hamonica2.zconfiguration.jpa.entity.QRegisterModifierEntity _super = new kr.co.pionnet.hamonica2.zconfiguration.jpa.entity.QRegisterModifierEntity(this);
 
     //inherited
-    public final DateTimePath<java.time.Instant> createdAt = _super.createdAt;
+    public final DateTimePath<java.time.ZonedDateTime> createdAt = _super.createdAt;
 
     //inherited
     public final StringPath creatorId = _super.creatorId;
@@ -38,7 +38,7 @@ public class QNotificationMailConfigEntity extends EntityPathBase<NotificationMa
     public final StringPath mailServerName = createString("mailServerName");
 
     //inherited
-    public final DateTimePath<java.time.Instant> modifiedAt = _super.modifiedAt;
+    public final DateTimePath<java.time.ZonedDateTime> modifiedAt = _super.modifiedAt;
 
     //inherited
     public final StringPath modifierId = _super.modifierId;

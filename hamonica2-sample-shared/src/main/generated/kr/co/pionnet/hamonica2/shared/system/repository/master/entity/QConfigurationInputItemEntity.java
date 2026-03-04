@@ -26,7 +26,7 @@ public class QConfigurationInputItemEntity extends EntityPathBase<ConfigurationI
     public final NumberPath<Long> configurationItemNo = createNumber("configurationItemNo", Long.class);
 
     //inherited
-    public final DateTimePath<java.time.Instant> createdAt = _super.createdAt;
+    public final DateTimePath<java.time.ZonedDateTime> createdAt = _super.createdAt;
 
     //inherited
     public final StringPath creatorId = _super.creatorId;
@@ -40,7 +40,7 @@ public class QConfigurationInputItemEntity extends EntityPathBase<ConfigurationI
     public final StringPath itemNameI18n = createString("itemNameI18n");
 
     //inherited
-    public final DateTimePath<java.time.Instant> modifiedAt = _super.modifiedAt;
+    public final DateTimePath<java.time.ZonedDateTime> modifiedAt = _super.modifiedAt;
 
     //inherited
     public final StringPath modifierId = _super.modifierId;

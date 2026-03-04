@@ -7,6 +7,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 /**
@@ -23,10 +24,10 @@ public class CodeGroup implements Serializable {
     @Size(max = 20)
     private String creatorId;
     @NotNull
-    private Instant createdAt;
+    private ZonedDateTime createdAt;
     @Size(max = 20)
     private String modifierId;
-    private Instant modifiedAt;
+    private ZonedDateTime modifiedAt;
     @Size(max = 6)
     private String codeGroupId;
     @Size(max = 30)

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 @Service
 public class DatetimeService {
@@ -17,7 +18,7 @@ public class DatetimeService {
      * 현재 시간을 가져온다.
      * @return Instant
      */
-    public Instant getCurrentDBDatetime() {
+    public ZonedDateTime getCurrentDBDatetime() {
         return datetimeRepository.getCurrentDBDatetime();
     }
 }

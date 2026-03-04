@@ -11,6 +11,7 @@ import org.hibernate.annotations.ColumnDefault;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,7 +25,7 @@ public  class RegisteredAtEntity implements Serializable {
     @NotNull
     @ColumnDefault("now()")
     @Column(name = "created_at", nullable = true, updatable = false , insertable = false)
-    private Instant createdAt;
+    private ZonedDateTime createdAt;
 
 
 }

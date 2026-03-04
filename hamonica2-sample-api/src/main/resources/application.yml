@@ -77,3 +77,22 @@ logging:
           jdbc:
             bind: trace
             extract: off
+
+#--------------------------------------------
+# hamonica cache
+#--------------------------------------------
+hamonica:
+  cache:
+    enabled: true
+    hazelcast:
+      cluster-name: hamonica2-hazelcast-cluster
+      cluster-ip-list:
+        - 10.74.102.100
+        - 10.74.102.101
+    mongo:
+      database-name: hamonica-cache
+      cluster-ip-list:
+        - 10.74.102.100:20001
+        - 10.74.102.101:20001
+        - 10.74.102.101:20002
+      replica-set-name: Hamonica2ReplicaSet

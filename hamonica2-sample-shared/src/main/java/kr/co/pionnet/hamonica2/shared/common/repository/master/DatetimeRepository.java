@@ -5,6 +5,7 @@ import kr.co.pionnet.hamonica2.zconfiguration.jpa.JpaMasterRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 @Repository
 public class DatetimeRepository extends JpaMasterRepository {
@@ -14,8 +15,8 @@ public class DatetimeRepository extends JpaMasterRepository {
      *
      * @return Instant;
      */
-    public Instant getCurrentDBDatetime() {
-        Query query = entityManager.createNativeQuery("SELECT now()", Instant.class);
-        return (Instant) query.getSingleResult();
+    public ZonedDateTime getCurrentDBDatetime() {
+        Query query = entityManager.createNativeQuery("SELECT now()", ZonedDateTime.class);
+        return (ZonedDateTime) query.getSingleResult();
     }
 }

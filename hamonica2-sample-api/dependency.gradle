@@ -18,7 +18,13 @@ repositories {
  -----------------------------------------------------------------------------------------------------------*/
 dependencies {
 	implementation project(":hamonica2-sample-shared")
-	implementation 'com.hazelcast:hazelcast-spring:5.5.0'
+
+    implementation 'kr.co.pionnet.hamonica2:hamonica2-spring-boot-cache:2.0.0-20260304.043123-21'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+
+    implementation 'com.hazelcast:hazelcast:5.5.0'
+    implementation 'com.hazelcast:hazelcast-spring:5.5.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'  // JUnit 5 API
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.3'  // JUnit 5 엔진

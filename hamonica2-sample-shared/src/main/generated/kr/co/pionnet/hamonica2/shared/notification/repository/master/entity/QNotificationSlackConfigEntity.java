@@ -26,7 +26,7 @@ public class QNotificationSlackConfigEntity extends EntityPathBase<NotificationS
     public final StringPath channelIds = createString("channelIds");
 
     //inherited
-    public final DateTimePath<java.time.Instant> createdAt = _super.createdAt;
+    public final DateTimePath<java.time.ZonedDateTime> createdAt = _super.createdAt;
 
     //inherited
     public final StringPath creatorId = _super.creatorId;
@@ -34,7 +34,7 @@ public class QNotificationSlackConfigEntity extends EntityPathBase<NotificationS
     public final StringPath description = createString("description");
 
     //inherited
-    public final DateTimePath<java.time.Instant> modifiedAt = _super.modifiedAt;
+    public final DateTimePath<java.time.ZonedDateTime> modifiedAt = _super.modifiedAt;
 
     //inherited
     public final StringPath modifierId = _super.modifierId;

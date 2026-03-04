@@ -22,7 +22,7 @@ public class QNotificationMessageQueueEntity extends EntityPathBase<Notification
     public final kr.co.pionnet.hamonica2.zconfiguration.jpa.entity.QRegisteredAtEntity _super = new kr.co.pionnet.hamonica2.zconfiguration.jpa.entity.QRegisteredAtEntity(this);
 
     //inherited
-    public final DateTimePath<java.time.Instant> createdAt = _super.createdAt;
+    public final DateTimePath<java.time.ZonedDateTime> createdAt = _super.createdAt;
 
     public final NumberPath<Short> failCount = createNumber("failCount", Short.class);
 

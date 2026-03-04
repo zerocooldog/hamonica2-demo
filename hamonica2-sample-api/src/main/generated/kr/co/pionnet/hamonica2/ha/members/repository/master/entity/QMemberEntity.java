@@ -21,9 +21,9 @@ public class QMemberEntity extends EntityPathBase<MemberEntity> {
 
     public final kr.co.pionnet.hamonica2.zconfiguration.jpa.entity.QRegisterModifierEntity _super = new kr.co.pionnet.hamonica2.zconfiguration.jpa.entity.QRegisterModifierEntity(this);
 
-    public final DateTimePath<java.time.Instant> accountEndDatetime = createDateTime("accountEndDatetime", java.time.Instant.class);
+    public final DateTimePath<java.time.ZonedDateTime> accountEndDatetime = createDateTime("accountEndDatetime", java.time.ZonedDateTime.class);
 
-    public final DateTimePath<java.time.Instant> accountStartDatetime = createDateTime("accountStartDatetime", java.time.Instant.class);
+    public final DateTimePath<java.time.ZonedDateTime> accountStartDatetime = createDateTime("accountStartDatetime", java.time.ZonedDateTime.class);
 
     public final ComparablePath<Character> approvalYn = createComparable("approvalYn", Character.class);
 
@@ -36,7 +36,7 @@ public class QMemberEntity extends EntityPathBase<MemberEntity> {
     public final StringPath countryCode = createString("countryCode");
 
     //inherited
-    public final DateTimePath<java.time.Instant> createdAt = _super.createdAt;
+    public final DateTimePath<java.time.ZonedDateTime> createdAt = _super.createdAt;
 
     //inherited
     public final StringPath creatorId = _super.creatorId;
@@ -52,7 +52,7 @@ public class QMemberEntity extends EntityPathBase<MemberEntity> {
     public final StringPath memberId = createString("memberId");
 
     //inherited
-    public final DateTimePath<java.time.Instant> modifiedAt = _super.modifiedAt;
+    public final DateTimePath<java.time.ZonedDateTime> modifiedAt = _super.modifiedAt;
 
     //inherited
     public final StringPath modifierId = _super.modifierId;

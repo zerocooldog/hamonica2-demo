@@ -7,6 +7,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 /**
  * DTO for {@link kr.co.pionnet.hamonica2.shared.system.repository.master.entity.ConfigurationInputItemEntity}
@@ -20,10 +21,10 @@ import java.time.Instant;
 public class ConfigurationInputItem implements Serializable {
     @Size(max = 20)
     String creatorId;
-    Instant createdAt;
+	ZonedDateTime createdAt;
     @Size(max = 20)
     String modifierId;
-    Instant modifiedAt;
+	ZonedDateTime modifiedAt;
     Long configurationItemNo;
     @NotNull
     @Size(max = 300)

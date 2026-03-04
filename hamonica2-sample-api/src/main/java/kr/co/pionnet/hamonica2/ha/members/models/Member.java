@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 /**
  * DTO for {@link kr.co.pionnet.hamonica2.ha.members.repository.master.entity.MemberEntity}
@@ -53,6 +54,6 @@ public class Member implements Serializable {
     String countryCode;
     @Size(max = 10)
     String serverGroupId;
-    Instant accountStartDatetime;
-    Instant accountEndDatetime;
+	ZonedDateTime accountStartDatetime;
+	ZonedDateTime accountEndDatetime;
 }

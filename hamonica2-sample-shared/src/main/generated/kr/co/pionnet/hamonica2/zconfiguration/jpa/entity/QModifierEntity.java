@@ -19,7 +19,7 @@ public class QModifierEntity extends EntityPathBase<ModifierEntity> {
 
     public static final QModifierEntity modifierEntity = new QModifierEntity("modifierEntity");
 
-    public final DateTimePath<java.time.Instant> modifiedAt = createDateTime("modifiedAt", java.time.Instant.class);
+    public final DateTimePath<java.time.ZonedDateTime> modifiedAt = createDateTime("modifiedAt", java.time.ZonedDateTime.class);
 
     public final StringPath modifierId = createString("modifierId");
 

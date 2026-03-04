@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 /**
  * DTO for {@link kr.co.pionnet.hamonica2.shared.notification.repository.master.entity.NotificationMailConfigEntity}
@@ -20,10 +21,10 @@ public class NotificationEmailConfig implements Serializable {
     @Size(max = 20)
     private String creatorId;
     @NotNull
-    private Instant createdAt;
+    private ZonedDateTime createdAt;
     @Size(max = 20)
     private String modifierId;
-    private Instant modifiedAt;
+    private ZonedDateTime modifiedAt;
     @Size(max = 10)
     private String notificationMailConfigId;
     @Size(max = 14)

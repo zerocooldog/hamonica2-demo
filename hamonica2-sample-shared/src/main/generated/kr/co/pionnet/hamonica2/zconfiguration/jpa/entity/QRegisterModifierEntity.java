@@ -19,11 +19,11 @@ public class QRegisterModifierEntity extends EntityPathBase<RegisterModifierEnti
 
     public static final QRegisterModifierEntity registerModifierEntity = new QRegisterModifierEntity("registerModifierEntity");
 
-    public final DateTimePath<java.time.Instant> createdAt = createDateTime("createdAt", java.time.Instant.class);
+    public final DateTimePath<java.time.ZonedDateTime> createdAt = createDateTime("createdAt", java.time.ZonedDateTime.class);
 
     public final StringPath creatorId = createString("creatorId");
 
-    public final DateTimePath<java.time.Instant> modifiedAt = createDateTime("modifiedAt", java.time.Instant.class);
+    public final DateTimePath<java.time.ZonedDateTime> modifiedAt = createDateTime("modifiedAt", java.time.ZonedDateTime.class);
 
     public final StringPath modifierId = createString("modifierId");
 

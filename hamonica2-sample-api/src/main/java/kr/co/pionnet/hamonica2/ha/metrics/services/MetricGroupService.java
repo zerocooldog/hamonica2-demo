@@ -8,7 +8,7 @@ import kr.co.pionnet.hamonica2.ha.metrics.repository.master.entity.MetricGroupEn
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
+import java.time.ZonedDateTime;
 
 @Slf4j
 @Service
@@ -33,7 +33,7 @@ public class MetricGroupService {
 
         metricGroupEntity.setMetricGroupNameI18n("");
         metricGroupEntity.setCreatorId("test");
-        metricGroupEntity.setCreatedAt(Instant.now());
+        metricGroupEntity.setCreatedAt(ZonedDateTime.now());
 
         log.debug("########### metricGroupEntity : {}", metricGroupEntity);
         return metricGroupMapper.toResponse(metricGroupRepository.persist(metricGroupEntity));

@@ -2,7 +2,7 @@ package kr.co.pionnet.hamonica2.ha.system.controllers;
 
 import kr.co.pionnet.hamonica2.shared.common.models.Code;
 import kr.co.pionnet.hamonica2.shared.util.UtilCode;
-import kr.co.pionnet.hamonica2.util.UtilText;
+import kr.co.pionnet.hamonica2.shared.util.UtilText;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

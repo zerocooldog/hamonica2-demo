@@ -1,8 +1,9 @@
 package kr.co.pionnet.hamonica2.zconfiguration;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.co.pionnet.butterfly2.core.util.UtilObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import tools.jackson.databind.ObjectMapper;
+
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

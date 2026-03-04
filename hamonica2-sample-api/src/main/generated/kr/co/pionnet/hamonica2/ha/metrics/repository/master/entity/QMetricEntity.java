@@ -27,7 +27,7 @@ public class QMetricEntity extends EntityPathBase<MetricEntity> {
     public final ComparablePath<Character> countBySendersUseYn = createComparable("countBySendersUseYn", Character.class);
 
     //inherited
-    public final DateTimePath<java.time.Instant> createdAt = _super.createdAt;
+    public final DateTimePath<java.time.ZonedDateTime> createdAt = _super.createdAt;
 
     //inherited
     public final StringPath creatorId = _super.creatorId;
@@ -43,7 +43,7 @@ public class QMetricEntity extends EntityPathBase<MetricEntity> {
     public final StringPath metricType = createString("metricType");
 
     //inherited
-    public final DateTimePath<java.time.Instant> modifiedAt = _super.modifiedAt;
+    public final DateTimePath<java.time.ZonedDateTime> modifiedAt = _super.modifiedAt;
 
     //inherited
     public final StringPath modifierId = _super.modifierId;

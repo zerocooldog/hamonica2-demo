@@ -1,6 +1,5 @@
 package kr.co.pionnet.hamonica2.shared.notification.mappers;
 
-import kr.co.pionnet.hamonica2.shared.util.UtilDate;
 import kr.co.pionnet.hamonica2.zconfiguration.jpa.entity.ModifierEntity;
 import kr.co.pionnet.hamonica2.zconfiguration.jpa.entity.RegisterEntity;
 import kr.co.pionnet.hamonica2.zconfiguration.jpa.entity.RegisterModifierEntity;
@@ -9,7 +8,7 @@ import org.mapstruct.BeanMapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
-import java.time.Instant;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 public interface DefaultMapStructMapper<M, E> {
@@ -33,7 +32,7 @@ public interface DefaultMapStructMapper<M, E> {
     default void setCreatorId(@MappingTarget E entity) {
 
         String creatorId = "00000000000000";
-        Instant modifiedAt = Instant.now();
+		ZonedDateTime modifiedAt = ZonedDateTime.now();
 
         setRegisterModifierEntity(entity, creatorId, modifiedAt);
         setRegisterEntity(entity, creatorId);
@@ -46,7 +45,7 @@ public interface DefaultMapStructMapper<M, E> {
     default void setCreatorId(@MappingTarget List<E> entities) {
 
         String creatorId = "00000000000000";
-        Instant modifiedAt = Instant.now();
+		ZonedDateTime modifiedAt = ZonedDateTime.now();
 
         for (E entity : entities) {
 
@@ -57,7 +56,7 @@ public interface DefaultMapStructMapper<M, E> {
         }
     }
 
-    default void setRegisterModifierEntity(E entity, String creatorId, Instant modifiedAt){
+    default void setRegisterModifierEntity(E entity, String creatorId, ZonedDateTime modifiedAt){
         if(entity instanceof RegisterModifierEntity ) {
 
             if (((RegisterModifierEntity) entity).getCreatorId() == null) {
@@ -79,7 +78,7 @@ public interface DefaultMapStructMapper<M, E> {
         }
     }
 
-    default void setModifierEntity(E entity, Instant modifiedAt){
+    default void setModifierEntity(E entity, ZonedDateTime modifiedAt){
         if(entity instanceof ModifierEntity ) {
 
             if (((ModifierEntity) entity).getModifiedAt() == null) {

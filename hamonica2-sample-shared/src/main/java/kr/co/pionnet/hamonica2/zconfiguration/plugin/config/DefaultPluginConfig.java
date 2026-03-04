@@ -1,6 +1,7 @@
 package kr.co.pionnet.hamonica2.zconfiguration.plugin.config;
 
-import kr.co.pionnet.hamonica2.common.ParameterMap;
+
+import kr.co.pionnet.hamonica2.ParameterMap;
 
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public abstract class DefaultPluginConfig implements PluginConfig {
      * @since 2024-06-28
      */
     @SafeVarargs
-    public final  ParameterMap newParameterMap(Map.Entry<String, Object>... entries){
+    public final ParameterMap newParameterMap(Map.Entry<String, Object>... entries){
         return new ParameterMap(Map.ofEntries(
                 entries
         ));

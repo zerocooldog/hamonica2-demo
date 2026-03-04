@@ -8,6 +8,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 /**
@@ -22,10 +23,10 @@ import java.util.List;
 public class Configuration implements Serializable {
     @Size(max = 20)
     String creatorId;
-    Instant createdAt;
+	ZonedDateTime createdAt;
     @Size(max = 20)
     String modifierId;
-    Instant modifiedAt;
+	ZonedDateTime modifiedAt;
     @Size(max = 300)
     String configurationId;
     @Size(max = 300)

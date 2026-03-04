@@ -28,7 +28,7 @@ public class QAlarmLogEntity extends EntityPathBase<AlarmLogEntity> {
     public final NumberPath<Integer> alarmNo = createNumber("alarmNo", Integer.class);
 
     //inherited
-    public final DateTimePath<java.time.Instant> createdAt = _super.createdAt;
+    public final DateTimePath<java.time.ZonedDateTime> createdAt = _super.createdAt;
 
     public final NumberPath<Long> notificationLogNo = createNumber("notificationLogNo", Long.class);
 

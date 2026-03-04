@@ -3,6 +3,7 @@ package kr.co.pionnet.hamonica2.shared.util;
 import kr.co.pionnet.hamonica2.shared.common.services.DatetimeService;
 
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 /**
  * 본 클래스는 Date 데이터를 조작 하는 유틸 클래스이다. 모든 프로젝트에서 사용할 유틸성 메소드를 구현할 경우에는 이곳에서 추가한다.
@@ -38,7 +39,7 @@ public class UtilDate extends kr.co.pionnet.butterfly2.core.util.UtilDate {
 	 * @since 2019.12.03 03:02
      * @author 장진철(zerocooldog@pionnet.co.kr)
 	 */
-	public static Instant getDateAtDB() {
+	public static ZonedDateTime getDateAtDB() {
 		return datetimeService.getCurrentDBDatetime();
 	}
 }

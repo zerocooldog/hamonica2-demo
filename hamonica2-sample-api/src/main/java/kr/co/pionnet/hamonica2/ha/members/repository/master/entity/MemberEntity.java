@@ -10,6 +10,7 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Comment;
 
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 @Getter
 @Setter
@@ -107,10 +108,10 @@ public class MemberEntity  extends RegisterModifierEntity {
 
     @Comment("계정 시작 일시")
     @Column(name = "account_start_datetime")
-    private Instant accountStartDatetime;
+    private ZonedDateTime accountStartDatetime;
 
     @Comment("계정 종료 일시")
     @Column(name = "account_end_datetime")
-    private Instant accountEndDatetime;
+    private ZonedDateTime accountEndDatetime;
 
 }

@@ -40,7 +40,7 @@ public class QConfigurationEntity extends EntityPathBase<ConfigurationEntity> {
     public final ComparablePath<Character> configurationVisibleValue = createComparable("configurationVisibleValue", Character.class);
 
     //inherited
-    public final DateTimePath<java.time.Instant> createdAt = _super.createdAt;
+    public final DateTimePath<java.time.ZonedDateTime> createdAt = _super.createdAt;
 
     //inherited
     public final StringPath creatorId = _super.creatorId;
@@ -48,7 +48,7 @@ public class QConfigurationEntity extends EntityPathBase<ConfigurationEntity> {
     public final StringPath inputType = createString("inputType");
 
     //inherited
-    public final DateTimePath<java.time.Instant> modifiedAt = _super.modifiedAt;
+    public final DateTimePath<java.time.ZonedDateTime> modifiedAt = _super.modifiedAt;
 
     //inherited
     public final StringPath modifierId = _super.modifierId;

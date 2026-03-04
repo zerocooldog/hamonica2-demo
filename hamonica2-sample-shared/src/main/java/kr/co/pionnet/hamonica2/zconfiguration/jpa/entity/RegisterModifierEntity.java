@@ -12,6 +12,7 @@ import org.hibernate.annotations.ColumnDefault;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,13 +29,13 @@ public class RegisterModifierEntity implements Serializable {
 
     @ColumnDefault("now()")
     @Column(name = "created_at", nullable = true, updatable = false , insertable = false)
-    private Instant createdAt;
+    private ZonedDateTime createdAt;
 
     @Size(max = 20)
     @Column(name = "modifier_id", length = 20)
     private String modifierId;
 
     @Column(name = "modified_at", updatable = true , insertable = false)
-    private Instant modifiedAt;
+    private ZonedDateTime modifiedAt;
 
 }

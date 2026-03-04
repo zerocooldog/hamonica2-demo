@@ -19,7 +19,7 @@ public class QRegisterEntity extends EntityPathBase<RegisterEntity> {
 
     public static final QRegisterEntity registerEntity = new QRegisterEntity("registerEntity");
 
-    public final DateTimePath<java.time.Instant> createdAt = createDateTime("createdAt", java.time.Instant.class);
+    public final DateTimePath<java.time.ZonedDateTime> createdAt = createDateTime("createdAt", java.time.ZonedDateTime.class);
 
     public final StringPath creatorId = createString("creatorId");
 

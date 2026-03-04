@@ -10,6 +10,7 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Comment;
 
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 @Getter
 @Setter
@@ -94,7 +95,7 @@ public class AlarmEntity {
     @Comment("등록일시")
     @ColumnDefault("now()")
     @Column(name = "created_at", nullable = false)
-    private Instant createdAt;
+    private ZonedDateTime createdAt;
 
     @Size(max = 20)
     @Comment("수정자")
@@ -103,6 +104,6 @@ public class AlarmEntity {
 
     @Comment("수정일시")
     @Column(name = "modified_at")
-    private Instant modifiedAt;
+    private ZonedDateTime modifiedAt;
 
 }

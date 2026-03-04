@@ -11,7 +11,7 @@ import kr.co.pionnet.hamonica2.shared.system.repository.master.ConfigurationInpu
 import kr.co.pionnet.hamonica2.shared.system.repository.master.ConfigurationRepository;
 import kr.co.pionnet.hamonica2.shared.system.models.Configuration;
 import kr.co.pionnet.hamonica2.shared.util.UtilObject;
-import kr.co.pionnet.hamonica2.util.UtilText;
+import kr.co.pionnet.hamonica2.shared.util.UtilText;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

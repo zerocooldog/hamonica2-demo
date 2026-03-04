@@ -1,15 +1,15 @@
 package kr.co.pionnet.hamonica2;
 
-import com.hazelcast.cache.HazelcastCacheManager;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
-import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.data.mongodb.autoconfigure.DataMongoAutoConfiguration;
+import org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration;
+import org.springframework.boot.jdbc.autoconfigure.DataSourceTransactionManagerAutoConfiguration;
+import org.springframework.boot.mongodb.autoconfigure.MongoAutoConfiguration;
+import org.springframework.boot.security.autoconfigure.SecurityAutoConfiguration;
+import org.springframework.boot.security.autoconfigure.UserDetailsServiceAutoConfiguration;
 
 @Slf4j
 @SpringBootApplication(
@@ -17,8 +17,9 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 				DataSourceAutoConfiguration.class,
 				DataSourceTransactionManagerAutoConfiguration.class,
 				SecurityAutoConfiguration.class,
+				UserDetailsServiceAutoConfiguration.class,
 				MongoAutoConfiguration.class,
-				MongoDataAutoConfiguration.class
+				DataMongoAutoConfiguration.class
 		}
 )
 public class HamonicaApiApplication {

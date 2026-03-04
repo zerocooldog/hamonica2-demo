@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZonedDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,5 +26,5 @@ public class ModifierEntity implements Serializable {
     private String modifierId;
 
     @Column(name = "modified_at", updatable = true , insertable = false)
-    private Instant modifiedAt;
+    private ZonedDateTime modifiedAt;
 }

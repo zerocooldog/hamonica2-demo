@@ -31,7 +31,7 @@ public class QAlarmEntity extends EntityPathBase<AlarmEntity> {
 
     public final StringPath alarmType = createString("alarmType");
 
-    public final DateTimePath<java.time.Instant> createdAt = createDateTime("createdAt", java.time.Instant.class);
+    public final DateTimePath<java.time.ZonedDateTime> createdAt = createDateTime("createdAt", java.time.ZonedDateTime.class);
 
     public final StringPath creatorId = createString("creatorId");
 
@@ -39,7 +39,7 @@ public class QAlarmEntity extends EntityPathBase<AlarmEntity> {
 
     public final StringPath description = createString("description");
 
-    public final DateTimePath<java.time.Instant> modifiedAt = createDateTime("modifiedAt", java.time.Instant.class);
+    public final DateTimePath<java.time.ZonedDateTime> modifiedAt = createDateTime("modifiedAt", java.time.ZonedDateTime.class);
 
     public final StringPath modifierId = createString("modifierId");
 
